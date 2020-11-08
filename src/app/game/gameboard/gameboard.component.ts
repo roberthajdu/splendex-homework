@@ -17,7 +17,12 @@ export class GameboardComponent implements OnInit {
   }
 
   onFlip(card: Card) {
+    if (card.flipped || card.found) return;
     this.gameService.setCardFlipped(card);
+  }
+
+  restart() {
+    this.gameService.restart();
   }
 
 }

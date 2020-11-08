@@ -1,7 +1,9 @@
+<div class="info-bar">
+    <div>Current tries: {{ gameService.gameBoard?.tries }}</div>
+    <div class="info-bar__button" (click)="restart()">Restart</div>
+</div>
 <div class="grid-container">
-    <div class="info-bar">
-        <div>Current tries: {{ gameService.gameBoard?.tries }}</div>
-    </div>
-    <app-card class="grid-item" *ngFor="let card of gameService.getBoardCards()" [card]="card" (flip)="onFlip(card)">
+    <app-card class="grid-item" *ngFor="let card of gameService.getBoardCards(); let i = index" [card]="card"
+        (flip)="onFlip(card)">
     </app-card>
 </div>

@@ -4,11 +4,13 @@ export class GameBoard {
 
     public tries;
     public boardSize;
+    public leftPairs;
     public cards: Card[] = [];
 
     constructor(size: number) {
         this.tries = 0;
         this.boardSize = size;
+        this.leftPairs = size;
     }
 
     public shuffle() {
@@ -18,5 +20,13 @@ export class GameBoard {
             this.cards[i] = this.cards[j]
             this.cards[j] = temp
         }
+    }
+
+    public addTry() {
+        this.tries++;
+    }
+
+    public removePairs() {
+        this.leftPairs--;
     }
 }
