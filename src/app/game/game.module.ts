@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GameComponent } from './game.component';
 import { CardComponent } from './card/card.component';
 import { RouterModule, Routes } from '@angular/router';
+import { GameboardComponent } from './gameboard/gameboard.component';
 
 const routes: Routes = [
   { path: 'card', component: CardComponent },
@@ -11,7 +12,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [GameComponent, CardComponent],
+  declarations: [GameComponent, CardComponent, GameboardComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)

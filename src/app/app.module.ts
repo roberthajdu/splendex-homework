@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './../app/landing-page/landing-page.component'
+import { LandingPageComponent } from './../app/landing-page/landing-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 const routes: Routes = [
   {
     path: 'play', loadChildren: () => import('./game/game.module').then(m => m.GameModule)
   },
-  { path: '', component: LandingPageComponent },
+  { path: '', redirectTo: 'play', pathMatch: 'full' }//component: LandingPageComponent },
 ];
 
 @NgModule({
@@ -19,7 +20,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
