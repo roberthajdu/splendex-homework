@@ -1,6 +1,7 @@
 export class Card {
-    private id: number;
-    private flipped: boolean;
+    public id: number;
+    public flipped: boolean;
+    public found: boolean = false;
 
     constructor(cardId: number) {
         this.id = cardId;

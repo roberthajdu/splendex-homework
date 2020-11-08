@@ -1,3 +1,3 @@
-<div class="card">
-    <img class="card__img" src="assets/cards/{{ card.id }}.png">
+<div class="card" [ngClass]="{ 'card--flipped': card.flipped, 'card--found': card.found }" (click)="checkFlip(card)">
+    <img class="card__img" *ngIf="card.flipped || card.found" src="assets/cards/{{ card.id }}.png">
 </div>

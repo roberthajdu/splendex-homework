@@ -11,6 +11,8 @@ export class GameService {
   gameBoardSize: number = 10;
   gameBoard: GameBoard;
 
+  flippedCard: Card;
+
   constructor() { }
 
   public createNewBoard(): void {
@@ -27,5 +29,19 @@ export class GameService {
       this.createNewBoard();
     }
     return this.gameBoard.cards;
+  }
+
+  setCardFlipped(card: Card): void {
+    if (this.flippedCard) {
+      if (card.id === this.flippedCard.id) {
+        card.found = true;
+        this.flippedCard.found = true;
+      } else {
+        this.flippedCard = undefined;
+      }
+    } else {
+      card.flipped = true;
+      this.flippedCard = card;
+    }
   }
 }

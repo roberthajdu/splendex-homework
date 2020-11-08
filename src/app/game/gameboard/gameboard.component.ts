@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Card } from '../_models/card.model';
 import { GameService } from "./../game.service";
 @Component({
   selector: 'app-gameboard',
@@ -13,6 +14,10 @@ export class GameboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onFlip(card: Card) {
+    this.gameService.setCardFlipped(card);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Card } from '../_models/card.model';
 
 @Component({
@@ -9,10 +9,16 @@ import { Card } from '../_models/card.model';
 export class CardComponent implements OnInit {
 
   @Input() card: Card;
+  @Output() flip: EventEmitter<Card> = new EventEmitter<Card>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  checkFlip(card) {
+    if (!card.flipped) {
+      this.flip.emit(card);
+    }
+  }
 }
